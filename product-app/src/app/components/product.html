@@ -1,0 +1,17 @@
+<h2>Productos</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <input formControlName="name" placeholder="Product name" />
+  <input formControlName="price" placeholder="Price" type="number" />
+  <button type="submit">Add Product</button>
+</form>
+
+<ul>
+  <li>
+    @for (p of products; track p)
+    {
+      {{ p.name }} - ${{ p.price }}
+      <button (click)="deleteProduct(p.id)">Delete</button>
+    }
+  </li>
+</ul>
